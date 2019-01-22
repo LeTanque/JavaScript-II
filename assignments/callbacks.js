@@ -15,7 +15,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-// const list = ['Pencil', 'paper', 'bicycle', 'notebook', 'ruler'];
+
 
 
 // Basic output callback function. basicOutput pushes whatever result from the function to the console.
@@ -70,8 +70,26 @@ contains('notebook', items, basicOutput);
 
 
 /* STRETCH PROBLEM */
-function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+// removeDuplicates removes all duplicate values from the given array.
+// Pass the duplicate free array to the callback function.
+// Do not mutate the original array.
+const items2 = ['Pencil', 'paper', 'ruler', 'bicycle', 'notebook', 'notebook', 'ruler'];
+
+function removeDuplicates(arrItems, cb) {
+  let noDupsArr = [];
+  
+  arrItems.forEach((itemInArr, index) => {
+    noDupsArr.push(itemInArr.toUpperCase());
+    noDupsArr.sort();
+  });
+
+  for (let i=0; i<noDupsArr.length; i++) {
+    if (noDupsArr[i] === noDupsArr[i+1]) {
+      noDupsArr.splice(i, 1); // removes 1 element at index 'i' if element equals element at 'i+1'
+    }
+  }
+
+  return cb(noDupsArr);
+  
 }
+removeDuplicates(items2, basicOutput);
