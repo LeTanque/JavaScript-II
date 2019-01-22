@@ -106,3 +106,4 @@ console.log(counter.value());
 console.log(counter.increment());
 console.log(counter.increment());
 console.log(counter.increment());
+// // This feels too copypasta, I'll come back to this more in the future. 
